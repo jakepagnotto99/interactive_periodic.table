@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+{% endblock %}
+{% block content %}
+<h1>{{ element.name }} ({{ element.symbol }})</h1>
+<p>Atomic Number: {{ element.atomic_number }}</p>
+<p>Atomic Weight: {{ element.atomic_weight }}</p>
+<p>Group: {{ element.group }}</p>
+<p>Period: {{ element.period }}</p>
+<p>{{ element.description }}</p>
+<div>
+    <a href="{% url 'element_update' element.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'element_delete' element.id %}" class="btn danger">Delete</a>
+</div>
+<div class="discoveries-container">
+    <section class="discoveries">
+      <div class="subsection-title">
+        <h2>Discoveries</h2>
+        <img
+          src="{% static 'images/discovery-microscope.svg' %}"
+          alt="A microscope"
+        />
+        <img src="{% static 'images/discovery-lab.svg' %}" alt="A lab setup" />
+        <img
+          src="{% static 'images/discovery-atom.svg' %}"
+          alt="An atomic structure"
+        />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Discoverer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for discovery in element.discovery_set.all %}
+            <tr>
+              <td>{{ discovery.date }}</td>
+              <td>{{ discovery.get_type_display }}</td>
+              <td>{{ discovery.discoverer }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  
+  {% endblock %}

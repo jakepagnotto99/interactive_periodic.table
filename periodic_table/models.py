@@ -1,4 +1,11 @@
 from django.db import models
+from django.urls import reverse
+    
+DISCOVERY_TYPES = (
+    ('S', 'Synthesized'),
+    ('N', 'Naturally Found'),
+    ('D', 'Discovered'),
+)
 
 class Element(models.Model):
     name = models.CharField(max_length=100)  # Full name of the element (e.g., "Hydrogen")
@@ -11,4 +18,28 @@ class Element(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.symbol})"
+    def get_absolute_url(self):
+        # Use the 'reverse' function to dynamically find the URL for viewing this cat's details
+        return reverse('element_detail', kwargs={'element_id': self.id})
+
+class Discovery(models.Model):
+    date = models.DateField('Discovery Date')
+    type = models.CharField(
+        max_length=1,
+        choices=DISCOVERY_TYPES,
+        default=DISCOVERY_TYPES[0][0],
+    )
+    discoverer = models.CharField('Discoverer', max_length=100)
+    # Link each discovery to a specific element
+    element = models.ForeignKey('Element', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_type_display()} on {self.date} by {self.discoverer}"
+
+    class Meta:
+        ordering = ['-date']  # Show the most recent discoveries first
+
+    
+
+    
 

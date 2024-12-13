@@ -4,6 +4,16 @@
 <link rel="stylesheet" href="{% static 'css/elements/element-index.css' %}" />
 {% endblock %}
 {% block content %}
+<h1>Elements</h1>
+<ul>
+  {% for element in elements %}
+    <li>
+      <a href="{% url 'element-detail' element.pk %}">{{ element.name }} ({{ element.symbol }})</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'element_create' %}" class="btn">Add New Element</a>
+{% endblock %}
 
 <section class="page-header">
   <h1>Interactive Periodic Table</h1>
@@ -14,21 +24,22 @@
 <section class="card-container">
   {% for element in elements %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img
-            src="{% static 'images/element-symbol.svg' %}"
-            alt="{{ element.symbol }}"
-          />
+      <a href="{% url 'cat-detail' cat.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img
+              src="{% static 'images/element-symbol-placeholder.svg' %}"
+              alt="{{ element.symbol }}"
+            />
+          </div>
+          <h2 class="card-title">{{ element.name }} ({{ element.symbol }})</h2>
+          <p>Atomic Number: {{ element.atomic_number }}</p>
+          <p>Atomic Weight: {{ element.atomic_weight }}</p>
+          <p>Group: {{ element.group }}, Period: {{ element.period }}</p>
+          <p><small>{{ element.description }}</small></p>
         </div>
-        <h2 class="card-title">{{ element.name }} ({{ element.symbol }})</h2>
-        <p>Atomic Number: {{ element.atomic_number }}</p>
-        <p>Atomic Weight: {{ element.atomic_weight }}</p>
-        <p>Group: {{ element.group }} | Period: {{ element.period }}</p>
-        <p><small>{{ element.description }}</small></p>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>
 
-{% endblock %}

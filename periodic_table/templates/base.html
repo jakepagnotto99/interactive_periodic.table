@@ -20,8 +20,10 @@
       </div>
       <nav>
         <ul>
-            <li><a href="/elements">All Elements</a></li>  
-          <li><a href="/about">About</a></li>
+          <li><a href="{% url 'home' %}">Periodic Table</a></li>
+          <li><a href="{% url 'element_detail' element_id=1 %}">Elements</a></li>
+          <li><a href="{% url 'element_list' %}">View All Elements</a></li>
+          <li><a href="{% url 'element_create' %}">Add Element</a></li>   
         </ul>
       </nav>
     </header>

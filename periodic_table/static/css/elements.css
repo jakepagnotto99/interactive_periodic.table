@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a.btn {
+    padding: 8px 12px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  a.btn.danger {
+    background-color: #dc3545;
+  }
+  

@@ -13,5 +13,6 @@ urlpatterns = [
     path('periodic_table/', views.periodic_table, name='periodic_table'),
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/login/', views.login, name='login'),  
+    
 
 ]

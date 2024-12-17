@@ -1,4 +1,4 @@
-Interactive Periodic Table Application
+# Interactive Periodic Table Application
 An engaging and interactive web application for exploring the periodic table of elements.
 
 Table of Contents
@@ -13,7 +13,7 @@ Table of Contents
 * License
 * Contact
 
-About the Project
+## About the Project
 This project is a Django-powered web application that allows users to explore all 118 elements in the periodic table. Users can interact with the table by viewing each element's detailed information, such as its name, symbol, atomic number, atomic weight, and description.
 
 The application is designed to make learning about elements simple and visually engaging.
@@ -103,6 +103,6 @@ This project is licensed under the MIT License.
 Contact
 * Developer: Jake Pagnotto
 * Email: jakepagnotto99@gmail.com
-* GitHub: Your GitHub Profile
+* GitHub: https://github.com/jakepagnotto99
 
 Enjoy exploring the periodic table! 🎉

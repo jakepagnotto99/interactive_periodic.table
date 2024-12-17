@@ -1,0 +1,112 @@
+/* Periodic Table Container */
+.periodic-table-container {
+    padding: 20px;
+    background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+    text-align: center;
+  }
+  
+  .periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 50px);
+    gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Individual Element Box */
+  .element {
+    width: 50px;
+    height: 60px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .element:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Element Symbol */
+  .symbol {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  /* Atomic Number */
+  .atomic-number {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 10px;
+    color: #666;
+  }
+  
+  /* Colors for Element Categories */
+  .alkali-metal {
+    background-color: #f7b267;
+  }
+  
+  .alkaline-earth-metal {
+    background-color: #f4845f;
+  }
+  
+  .transition-metal {
+    background-color: #f5707b;
+  }
+  
+  .post-transition-metal {
+    background-color: #e5989b;
+  }
+  
+  .metalloid {
+    background-color: #a7bed3;
+  }
+  
+  .nonmetal {
+    background-color: #9eefe5;
+  }
+  
+  .halogen {
+    background-color: #f9d5e5;
+  }
+  
+  .noble-gas {
+    background-color: #b9fbc0;
+  }
+  
+  .lanthanide {
+    background-color: #c4b5fd;
+  }
+  
+  .actinide {
+    background-color: #cabbe9;
+  }
+  .element-overview {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .element-overview h2 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .element-overview p {
+    margin: 4px 0;
+  }
+  

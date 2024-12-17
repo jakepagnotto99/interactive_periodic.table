@@ -1,0 +1,38 @@
+<div class="periodic-table">
+    {% for element in elements %}
+      <a href="{% url 'element_detail' element.id %}" class="element">
+        <div class="symbol">{{ element.symbol }}</div>
+        <div class="atomic-number">{{ element.atomic_number }}</div>
+      </a>
+    {% endfor %}
+  </div>
+  <div class="element-overview" style="display: none;"></div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.element');
+  
+      elements.forEach((el) => {
+        el.addEventListener('mouseover', () => {
+          const name = el.getAttribute('data-name');
+          const symbol = el.getAttribute('data-symbol');
+          const atomicNumber = el.getAttribute('data-atomic-number');
+          const atomicWeight = el.getAttribute('data-atomic-weight');
+  
+          const overview = document.querySelector('.element-overview');
+          overview.innerHTML = `
+            <h2>${name} (${symbol})</h2>
+            <p>Atomic Number: ${atomicNumber}</p>
+            <p>Atomic Weight: ${atomicWeight}</p>
+          `;
+          overview.style.display = 'block';
+        });
+  
+        el.addEventListener('mouseout', () => {
+          const overview = document.querySelector('.element-overview');
+          overview.style.display = 'none';
+        });
+      });
+    });
+  </script>
+  

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
     
 DISCOVERY_TYPES = (
     ('S', 'Synthesized'),
@@ -15,6 +16,7 @@ class Element(models.Model):
     description = models.TextField(max_length=500)  # Brief description or fact about the element
     group = models.PositiveIntegerField()  # Group number on the periodic table
     period = models.PositiveIntegerField()  # Period number on the periodic table
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.name} ({self.symbol})"
@@ -40,6 +42,3 @@ class Discovery(models.Model):
         ordering = ['-date']  # Show the most recent discoveries first
 
     
-
-    
-
